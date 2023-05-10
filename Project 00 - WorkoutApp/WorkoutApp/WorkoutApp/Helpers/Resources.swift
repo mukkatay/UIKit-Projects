@@ -1,5 +1,5 @@
 //
-//  Recources.swift
+//  Resources.swift
 //  WorkoutApp
 //
 //  Created by Akyl Mukatay  on 09.05.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Recources {
+enum Resources {
     enum Color {
         static var active = UIColor(hexString: "#437BFE")
         static var inactive = UIColor(hexString: "#929DA5")
@@ -28,6 +28,7 @@ enum Recources {
         }
         
         enum Overview {
+            static var navBar = "Today"
             static var allWorkoutButton = "All Workouts"
         }
         
@@ -44,6 +45,8 @@ enum Recources {
         enum Settings {
             
         }
+        
+        
     }
     
     enum Images {
@@ -57,6 +60,7 @@ enum Recources {
         
         enum Common {
             static var downArrow = UIImage(named: "Down-Arrow")
+            static var add = UIImage(named: "Add")
         }
     }
     

@@ -50,17 +50,17 @@ private extension SecondaryButton {
     }
     
     func configure() {
-        backgroundColor = Recources.Color.secondary
+        backgroundColor = Resources.Color.secondary
         layer.cornerRadius = 14
         makeSystem(self)
         
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.textColor = Recources.Color.active
+        lable.textColor = Resources.Color.active
         lable.textAlignment = .center
-        lable.font = Recources.Fonts.helveticaRegular(with: 15)
+        lable.font = Resources.Fonts.helveticaRegular(with: 15)
         
         iconView.translatesAutoresizingMaskIntoConstraints = false
-        iconView.image = Recources.Images.Common.downArrow?.withRenderingMode(.alwaysTemplate)
-        iconView.tintColor = Recources.Color.active
+        iconView.image = Resources.Images.Common.downArrow?.withRenderingMode(.alwaysTemplate)
+        iconView.tintColor = Resources.Color.active
     }
 }
