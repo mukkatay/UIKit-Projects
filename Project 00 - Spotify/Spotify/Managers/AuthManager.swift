@@ -13,6 +13,7 @@ final class AuthManager {
     struct Constants {
         static let clientID = "e422ba9ca5084b1aa75c84b1b75ad015"
         static let clientSecret = "62f05c0371b243f1961abec07ad28cc8"
+        static let tokenAPIURL = "https://accounts.spotify.com/api/token"
     }
     
     private init() {}
@@ -50,13 +51,60 @@ final class AuthManager {
         completion: @escaping ((Bool) -> Void)
     ) {
         // get token
+        guard let url = URL(string: Constants.tokenAPIURL) else {
+            return
+        }
+        
+        var components = URLComponents()
+        components.queryItems = [
+            URLQueryItem(name: "grant_type", value: "authorization_code"),
+            URLQueryItem(name: "code", value: code),
+            URLQueryItem(name: "redirect_uri", value: "https://iosacademy.io")
+        ]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/x-www-from-urlencoded ", forHTTPHeaderField: "Content-Type")
+        request.httpBody = components.query?.data(using: .utf8)
+        
+        let basicToken = Constants.clientID+":"+Constants.clientSecret
+        let data = basicToken.data(using: .utf8)
+        guard let base64String = data?.base64EncodedString() else {
+            print("Failure to get base64")
+            completion(false)
+            return
+        }
+        
+        request.setValue("Base \(base64String)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
+            guard let data = data,
+                  error == nil else {
+                completion(false)
+                return
+            }
+            
+            do {
+//                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+//                print("SUCCESS: \(json)")
+                let result = try JSONDecoder().decode(AuthResponse.self, from: data)
+                self?.cacheToken(result: result)
+                completion(true)
+            }
+            catch {
+                print(error.localizedDescription)
+                completion(false)
+            }
+        }
+        task.resume()
+        
     }
     
     public func refreshAccessToken() {
         
     }
     
-    private func cacheToken() {
+    private func cacheToken(result: AuthResponse) {
         
     }
     
