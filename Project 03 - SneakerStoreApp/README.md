@@ -1,7 +1,8 @@
 # Sneaker Store App
 Pet-projects
 
-Catalog (1st tab)
+Catalog (1st tab):
+
     - Grid – 2 column grid with items
         - Each item has
             - Text – product title
