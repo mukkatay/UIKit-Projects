@@ -7,23 +7,29 @@
 
 import UIKit
 
+protocol CatalogCellDelegate: AnyObject {
+    func didSelectAddButton(withText text: String)
+}
+
 class CatalogViewCell: UICollectionViewCell {
     var imageView = UIImageView()
     let titleLabel = UILabel()
     let descriptionLabel = UILabel()
     let priceLabel = UILabel()
-    let button = UIButton()
+    let addToCartButton = UIButton()
     
-    var card: Card? {
+    var card: Product? {
         didSet {
-            titleLabel.text = card?.titleLabel
-            descriptionLabel.text = card?.descriptionLabel
-            priceLabel.text = card?.priceLabel
+            titleLabel.text = card?.name
+            descriptionLabel.text = card?.description
+            priceLabel.text = card?.price
             if let image = card?.imageName {
                 imageView.image = UIImage(named: image)
             }
         }
     }
+    
+    weak var delegate: CatalogCellDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,15 +53,28 @@ class CatalogViewCell: UICollectionViewCell {
         
         priceLabel.font = .systemFont(ofSize: 12, weight: .bold)
         
-        button.setTitle("Add to card", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .black
-        button.layer.cornerRadius = 20
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        addToCartButton.setTitle("Add to cart", for: .normal)
+        addToCartButton.setTitleColor(.white, for: .normal)
+        addToCartButton.backgroundColor = .black
+        addToCartButton.layer.cornerRadius = 20
+        addToCartButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        addToCartButton.addTarget(self, action: #selector(addToCartButtonTapped), for: .touchUpInside)
+        
+        imageView.contentMode = .scaleToFill
+    }
+
+    @objc func addToCartButtonTapped() {
+        print("Add to card!")
+        // Обработка нажатия кнопки "Add to Cart"
+        // Добавьте выбранный продукт в корзину
+        // Например:
+        if let product = card {
+            CartManager.shared.addToCart(product)
+        }
     }
     
     func layoutView() {
-        [imageView, titleLabel, descriptionLabel, priceLabel, button].forEach {
+        [imageView, titleLabel, descriptionLabel, priceLabel, addToCartButton].forEach {
             self.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -64,6 +83,8 @@ class CatalogViewCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: self.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -4),
+            imageView.heightAnchor.constraint(equalToConstant: 166),
+            imageView.widthAnchor.constraint(equalToConstant: 166),
             
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 2),
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
@@ -74,12 +95,13 @@ class CatalogViewCell: UICollectionViewCell {
             priceLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 4),
             priceLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
             
-            button.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 8),
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
-            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -4),
-            button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
-            button.heightAnchor.constraint(equalToConstant: 40)
+            addToCartButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 8),
+            addToCartButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
+            addToCartButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -4),
+            addToCartButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
+            addToCartButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
+
     
 }

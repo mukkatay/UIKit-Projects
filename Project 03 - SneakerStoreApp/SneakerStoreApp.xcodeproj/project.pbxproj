@@ -9,7 +9,13 @@
 /* Begin PBXBuildFile section */
 		8AB95F199B0E54E7A1F19900 /* Pods_SneakerStoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6AA90262607B361C0101E9F /* Pods_SneakerStoreApp.framework */; };
 		BD1E170F2A2B4E3A00D4E26A /* CatalogViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E170E2A2B4E3A00D4E26A /* CatalogViewCell.swift */; };
-		BD1E17172A2B6FA500D4E26A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E17162A2B6FA500D4E26A /* Card.swift */; };
+		BD27969A2A34688300F1D513 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2796992A34688300F1D513 /* Products.swift */; };
+		BD27969C2A34714F00F1D513 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27969B2A34714F00F1D513 /* CartManager.swift */; };
+		BD49F33C2A2F22DE004A7CF8 /* BottomSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD49F33B2A2F22DE004A7CF8 /* BottomSheetController.swift */; };
+		BD49F33E2A2F9A6F004A7CF8 /* AccounInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD49F33D2A2F9A6F004A7CF8 /* AccounInfoViewController.swift */; };
+		BD49F3402A2FA730004A7CF8 /* ShoeSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD49F33F2A2FA730004A7CF8 /* ShoeSizeViewController.swift */; };
+		BD4A54222A30720900EED500 /* LinkOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4A54212A30720900EED500 /* LinkOneViewController.swift */; };
+		BD4A54242A30780900EED500 /* LinkTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4A54232A30780900EED500 /* LinkTwoViewController.swift */; };
 		BD55ADB02A2C4DED00843DA7 /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD55ADAF2A2C4DED00843DA7 /* BigButton.swift */; };
 		BD55ADB22A2C794E00843DA7 /* CartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD55ADB12A2C794E00843DA7 /* CartViewCell.swift */; };
 		BD55ADB42A2CF41300843DA7 /* SmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD55ADB32A2CF41300843DA7 /* SmallButton.swift */; };
@@ -31,7 +37,13 @@
 		710E9D69A9CA6035EDD81814 /* Pods-SneakerStoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SneakerStoreApp.release.xcconfig"; path = "Target Support Files/Pods-SneakerStoreApp/Pods-SneakerStoreApp.release.xcconfig"; sourceTree = "<group>"; };
 		B6AA90262607B361C0101E9F /* Pods_SneakerStoreApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SneakerStoreApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD1E170E2A2B4E3A00D4E26A /* CatalogViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewCell.swift; sourceTree = "<group>"; };
-		BD1E17162A2B6FA500D4E26A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		BD2796992A34688300F1D513 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		BD27969B2A34714F00F1D513 /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
+		BD49F33B2A2F22DE004A7CF8 /* BottomSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetController.swift; sourceTree = "<group>"; };
+		BD49F33D2A2F9A6F004A7CF8 /* AccounInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccounInfoViewController.swift; sourceTree = "<group>"; };
+		BD49F33F2A2FA730004A7CF8 /* ShoeSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeSizeViewController.swift; sourceTree = "<group>"; };
+		BD4A54212A30720900EED500 /* LinkOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkOneViewController.swift; sourceTree = "<group>"; };
+		BD4A54232A30780900EED500 /* LinkTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTwoViewController.swift; sourceTree = "<group>"; };
 		BD55ADAF2A2C4DED00843DA7 /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
 		BD55ADB12A2C794E00843DA7 /* CartViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewCell.swift; sourceTree = "<group>"; };
 		BD55ADB32A2CF41300843DA7 /* SmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallButton.swift; sourceTree = "<group>"; };
@@ -84,7 +96,6 @@
 			children = (
 				BDE8B6C22A28B3D900E8877C /* CatalogViewController.swift */,
 				BD1E170E2A2B4E3A00D4E26A /* CatalogViewCell.swift */,
-				BD1E17162A2B6FA500D4E26A /* Card.swift */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -94,6 +105,7 @@
 			children = (
 				BDE8B6C42A28B3EF00E8877C /* CartViewController.swift */,
 				BD55ADB12A2C794E00843DA7 /* CartViewCell.swift */,
+				BD49F33B2A2F22DE004A7CF8 /* BottomSheetController.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -102,6 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				BDE8B6C62A28B3FA00E8877C /* ProfileViewController.swift */,
+				BD49F33D2A2F9A6F004A7CF8 /* AccounInfoViewController.swift */,
+				BD49F33F2A2FA730004A7CF8 /* ShoeSizeViewController.swift */,
+				BD4A54212A30720900EED500 /* LinkOneViewController.swift */,
+				BD4A54232A30780900EED500 /* LinkTwoViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -150,6 +166,7 @@
 		BDE8B6BB2A28B14500E8877C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				BD27969B2A34714F00F1D513 /* CartManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -158,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				BDE8B6CE2A28C64A00E8877C /* Extentions */,
+				BD2796992A34688300F1D513 /* Products.swift */,
 				BDE8B6CA2A28C4F800E8877C /* Resources.swift */,
 				BDE8B6AE2A28A07800E8877C /* Assets.xcassets */,
 			);
@@ -318,8 +336,14 @@
 				BDE8B6A62A28A07600E8877C /* AppDelegate.swift in Sources */,
 				BD55ADB02A2C4DED00843DA7 /* BigButton.swift in Sources */,
 				BDE8B6A82A28A07600E8877C /* SceneDelegate.swift in Sources */,
+				BD4A54222A30720900EED500 /* LinkOneViewController.swift in Sources */,
 				BDE8B6CD2A28C64500E8877C /* UIColor + ext.swift in Sources */,
-				BD1E17172A2B6FA500D4E26A /* Card.swift in Sources */,
+				BD49F33E2A2F9A6F004A7CF8 /* AccounInfoViewController.swift in Sources */,
+				BD4A54242A30780900EED500 /* LinkTwoViewController.swift in Sources */,
+				BD27969C2A34714F00F1D513 /* CartManager.swift in Sources */,
+				BD49F33C2A2F22DE004A7CF8 /* BottomSheetController.swift in Sources */,
+				BD27969A2A34688300F1D513 /* Products.swift in Sources */,
+				BD49F3402A2FA730004A7CF8 /* ShoeSizeViewController.swift in Sources */,
 				BD55ADB42A2CF41300843DA7 /* SmallButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

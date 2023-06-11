@@ -17,21 +17,23 @@ class CartViewCell: UICollectionViewCell {
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let priceLabel = UILabel()
+    private var quantity = ""
     private let button = SmallButton()
     
-    var card: Card? {
+    var card: CartItem? {
         didSet {
-            titleLabel.text = card?.titleLabel
-            descriptionLabel.text = card?.descriptionLabel
-            priceLabel.text = card?.priceLabel
-            if let image = card?.imageName {
+            titleLabel.text = card?.product.name
+            descriptionLabel.text = card?.product.description
+            priceLabel.text = card?.product.price
+            quantity = String(describing: card?.quantity)
+            if let image = card?.product.imageName {
                 imageView.image = UIImage(named: image)
             }
         }
     }
 
     override init(frame: CGRect) {
-        super.init(frame: frame)        
+        super.init(frame: frame)
         layoutView()
         configure()
     }
@@ -61,6 +63,7 @@ class CartViewCell: UICollectionViewCell {
         
         priceLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         
+        button.countLabel.text = quantity
     }
     
     func layoutView() {
@@ -102,3 +105,5 @@ class CartViewCell: UICollectionViewCell {
     
 
 }
+
+

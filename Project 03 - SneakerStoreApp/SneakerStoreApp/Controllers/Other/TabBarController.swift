@@ -14,6 +14,7 @@ enum Tabs: Int {
 }
 
 class TabBarController: UITabBarController {
+    var cartViewController: CartViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()

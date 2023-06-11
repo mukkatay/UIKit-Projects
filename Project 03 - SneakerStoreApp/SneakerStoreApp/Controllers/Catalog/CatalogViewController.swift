@@ -9,34 +9,8 @@ import UIKit
 
 class CatalogViewController: UIViewController {
     var collectionView: UICollectionView!
-    
-    var itemCardArray: [Card] = {
-        var sneaker1 = Card()
-        sneaker1.titleLabel = "Dolce & Gabbana"
-        sneaker1.descriptionLabel = "Кеды с принтом граффити"
-        sneaker1.priceLabel = "$1251"
-        sneaker1.imageName = "Img1"
-        
-        var sneaker2 = Card()
-        sneaker2.titleLabel = "Off-White"
-        sneaker2.descriptionLabel = "Кроссовки Off-Court 3.0"
-        sneaker2.priceLabel = "$551"
-        sneaker2.imageName = "Img2"
-        
-        var sneaker3 = Card()
-        sneaker3.titleLabel = "Jordan"
-        sneaker3.descriptionLabel = "Кеды с принтом граффити"
-        sneaker3.priceLabel = "$1251"
-        sneaker3.imageName = "Img3"
-        
-        var sneaker4 = Card()
-        sneaker4.titleLabel = "Jordan"
-        sneaker4.descriptionLabel = "Кеды с принтом граффити"
-        sneaker4.priceLabel = "$1251"
-        sneaker4.imageName = "Img4"
 
-        return [sneaker1, sneaker2, sneaker3, sneaker4, sneaker2, sneaker1]
-    }()
+    var itemCardArray: [Product] = createProducts()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +35,7 @@ class CatalogViewController: UIViewController {
         collectionView.backgroundColor = Resources.Color.grayBackround
         collectionView.dataSource = self
         collectionView.register(CatalogViewCell.self, forCellWithReuseIdentifier: "cardCell")
+        collectionView.reloadData()
     }
     
     func setupFlowLayout() -> UICollectionViewFlowLayout {
@@ -76,6 +51,7 @@ class CatalogViewController: UIViewController {
         
         return layout
     }
+    
 }
 
 extension CatalogViewController: UICollectionViewDataSource {

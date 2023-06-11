@@ -13,34 +13,8 @@ class CartViewController: UIViewController {
     var totalView = UIView()
     var button = UIButton()
     
-    var itemCardArray: [Card] = {
-        var sneaker1 = Card()
-        sneaker1.titleLabel = "New Balance"
-        sneaker1.descriptionLabel = "Кроссовки 993 Brown из коллаборации с Aimé Leon Dore"
-        sneaker1.priceLabel = "$325"
-        sneaker1.imageName = "Img5"
-        
-        var sneaker2 = Card()
-        sneaker2.titleLabel = "Off-White"
-        sneaker2.descriptionLabel = "Кроссовки Off-Court 3.0"
-        sneaker2.priceLabel = "$551"
-        sneaker2.imageName = "Img2"
-        
-        var sneaker3 = Card()
-        sneaker3.titleLabel = "Jordan"
-        sneaker3.descriptionLabel = "Кеды с принтом граффити"
-        sneaker3.priceLabel = "$1251"
-        sneaker3.imageName = "Img3"
-        
-        var sneaker4 = Card()
-        sneaker4.titleLabel = "Jordan"
-        sneaker4.descriptionLabel = "Кеды с принтом граффити"
-        sneaker4.priceLabel = "$1251"
-        sneaker4.imageName = "Img4"
-
-        return [sneaker1, sneaker4]
-    }()
-
+    var cartItems: [CartItem] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Resources.Color.grayBackround
@@ -57,7 +31,6 @@ class CartViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(CartViewCell.self, forCellWithReuseIdentifier: "\(CartViewCell.self)")
         collectionView.backgroundColor = Resources.Color.grayBackround
-        
         totalView.backgroundColor = .white
         
         button.setTitle("Confirm Order", for: .normal)
@@ -66,6 +39,12 @@ class CartViewController: UIViewController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         button.addTarget(self, action: #selector(triggerAlertAction), for: .touchUpInside)
         
+        cartItems = CartManager.shared.getCartItems()
+        
+        func updateCart() {
+            cartItems = CartManager.shared.getCartItems()
+            collectionView.reloadData()
+        }
     }
     
     func layoutView() {
@@ -102,13 +81,14 @@ class CartViewController: UIViewController {
         showAlert()
     }
     
+    
 }
 
 extension CartViewController {
     func showAlert() {
         let alertController = UIAlertController(title: "Proceed with payment", message: "Are you sure you want to confirm?", preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { [self] _ in
-            showActionSheet()
+            showBottomSheet()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         [confirmAction, cancelAction].forEach{alertController.addAction($0)}
@@ -116,21 +96,28 @@ extension CartViewController {
         present(alertController, animated: true)
     }
     
-    func showActionSheet() {
-        print("Bottom sheet is activated")
+    func showBottomSheet() {
+        let vc = BottomSheetController()
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.custom{_ in
+                return 538
+            }]
+        }
+        present(vc, animated: true)
     }
 }
 
 extension CartViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        itemCardArray.count
+        cartItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(CartViewCell.self)", for: indexPath) as? CartViewCell else {
             return UICollectionViewCell()
         }
-        cell.card = itemCardArray[indexPath.row]
+        cell.card = cartItems[indexPath.row]
         return cell
     }
 }
+

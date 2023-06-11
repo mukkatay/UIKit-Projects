@@ -11,12 +11,19 @@ class SmallButton: UIView {
     
     let plusIcon = UIImageView()
     let minusIcon = UIImageView()
-    let countLabel = UILabel()
+    var countLabel = UILabel()
+    
+//    var quantityLabel: CartItem? {
+//        didSet {
+//            countLabel.text = String(describing: quantityLabel?.quantity)
+//        }
+//    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         layoutView()
         configure()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -27,9 +34,16 @@ class SmallButton: UIView {
         backgroundColor = Resources.Color.black
         layer.cornerRadius = 18
         minusIcon.image = UIImage(named: "subtract")
+        minusIcon.isUserInteractionEnabled = true
+        minusIcon.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(minusIconAction)))
         plusIcon.image = UIImage(named: "add")
-        countLabel.text = "3"
-        countLabel.textColor = Resources.Color.white
+//        countLabel.text = "1"
+//        countLabel.textColor = Resources.Color.white
+//        countLabel.reloadInputViews()
+    }
+    
+    @objc func minusIconAction() {
+        print("---")
     }
     
     func layoutView() {
