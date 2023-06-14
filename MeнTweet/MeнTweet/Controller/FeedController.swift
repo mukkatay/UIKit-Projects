@@ -26,6 +26,7 @@ class FeedController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         navigationItem.titleView = imageView
         navigationItem.titleView?.backgroundColor = .white
+       
     }
     
 }

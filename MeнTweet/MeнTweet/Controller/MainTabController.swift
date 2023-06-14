@@ -11,6 +11,14 @@ class MainTabController: UITabBarController {
     
     //MARK: - Properties
     
+    let actionButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .white
+        button.backgroundColor = .black
+        button.setImage(UIImage(named: "plus"), for: .normal)
+        return button
+    }()
+    
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -19,14 +27,23 @@ class MainTabController: UITabBarController {
         view.backgroundColor = .systemOrange
         
         configureViewControllers()
+        configureUI()
     }
     
     //MARK: - Helpers
+    
+    func configureUI() {
+        view.addSubview(actionButton)
+        actionButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.trailingAnchor, paddingBottom: 64, paddingRight: 16, width: 56, height: 56)
+        actionButton.layer.cornerRadius = 56 / 2
+    }
+    
     func configureViewControllers() {
         tabBar.backgroundColor = .white
         tabBar.layer.borderColor = UIColor.systemGray.cgColor
         tabBar.layer.borderWidth = 0.2
         tabBar.layer.masksToBounds = true
+        tabBar.tintColor = .black
         
         let feed = FeedController()
         let feedNavigation = templateNavigationController(imageName: "home", rootViewController: feed)
