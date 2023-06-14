@@ -20,30 +20,39 @@ final class AuthManager {
     
     public var singInURL: URL? {
         let scopes = "user-read-private"
-        let redirectURI = "https://iosacademy.io"
+        let redirectURI = "http://localhost:8888/callback"
         let base = "https://accounts.spotify.com/authorize"
-        let string = "\(base)?response_type=code&client_id=\(Constants.clientID)&scope=\(scopes)&redirect_uri=\(redirectURI)"
+        let string = "\(base)?response_type=code&client_id=\(Constants.clientID)&scope=\(scopes)&redirect_uri=\(redirectURI)&show_dialog=TRUE"
+        
         return URL(string: string)
     }
     
+    
+    
+    
     var isSignedIn: Bool {
-        return false
+        return accessToken != nil
     }
     
     private var accessToken: String? {
-        return nil
+        return UserDefaults.standard.string(forKey: "access_token")
     }
     
     private var refreshToken: String? {
-        return nil
+        return UserDefaults.standard.string(forKey: "refresh_token")
     }
     
     private var tokenExpirationDate: Date? {
-        return nil
+        return UserDefaults.standard.object(forKey: "expirationDate") as? Date
     }
     
-    private var ShouldRefreshToken: Bool {
-        return false
+    private var shouldRefreshToken: Bool {
+        guard let expirationDate = tokenExpirationDate else {
+            return false
+        }
+        let currentDate = Date()
+        let fiveMinutes: TimeInterval = 300
+        return currentDate.addingTimeInterval(fiveMinutes) >= expirationDate
     }
     
     public func exchangeCodeForToken(
@@ -74,8 +83,8 @@ final class AuthManager {
             completion(false)
             return
         }
-        
-        request.setValue("Base \(base64String)", forHTTPHeaderField: "Authorization")
+        //Base
+        request.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
         
         let task = URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
             guard let data = data,
@@ -105,7 +114,9 @@ final class AuthManager {
     }
     
     private func cacheToken(result: AuthResponse) {
-        
+        UserDefaults.standard.setValue(result.access_token, forKey: "access_token")
+        UserDefaults.standard.setValue(result.refresh_token, forKey: "refresh_token")
+        UserDefaults.standard.setValue(Date().addingTimeInterval(TimeInterval(result.expires_in)), forKey: "expirationDate")
     }
     
 }

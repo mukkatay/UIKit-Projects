@@ -37,8 +37,8 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLayoutSubviews()
         webView.frame = view.bounds
     }
-    
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+    //didReceiveServerRedirectForProvisionalNavigation
+    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
         guard let url = webView.url else { return }
         
         // Exchange the code for access token
