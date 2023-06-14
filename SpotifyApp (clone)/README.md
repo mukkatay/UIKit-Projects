@@ -1,4 +1,4 @@
-# Spotify 
+# Spotify App
 
 ## on development stage...
 
