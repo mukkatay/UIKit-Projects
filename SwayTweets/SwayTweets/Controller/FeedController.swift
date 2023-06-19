@@ -106,7 +106,7 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
 
 extension FeedController: TweetCellDelegate {
     func handleProfileImageTapped() {
-        let controller = ProfileController(collectionViewLayout: UICollectionViewFlowLayout())
+        let controller = ProfileController(collectionViewLayout: UICollectionViewLayout())
         navigationController?.pushViewController(controller, animated: true)
     }
 }

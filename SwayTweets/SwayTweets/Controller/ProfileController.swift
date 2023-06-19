@@ -7,9 +7,6 @@
 
 import UIKit
 
-private let reuseIdentifire = "TweetCell"
-private let headerIdentifire = "ProfileHeader"
-
 class ProfileController: UICollectionViewController {
     
     //MARK: - Properties
@@ -18,58 +15,6 @@ class ProfileController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureCollectionView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-    }
-    
-    //MARK: - Helpers
-    
-    func configureCollectionView() {
-        collectionView.backgroundColor = .white
-        collectionView.contentInsetAdjustmentBehavior = .never
-
-        collectionView.register(TweetCell.self, forCellWithReuseIdentifier: reuseIdentifire)
-        collectionView.register(ProfileHeader.self,
-                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                withReuseIdentifier: headerIdentifire)
-    }
-} 
-
-//MARK: - UICollectionViewDataSource
-
-extension ProfileController {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 300)
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifire, for: indexPath) as! TweetCell
-        return cell
-    }
-}
-
-//MARK: - UICollectionViewDelegate
-
-extension ProfileController {
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifire, for: indexPath) as! ProfileHeader
-        return header
-    }
-}
-
-//MARK: - UICollectionViewDelegateFlowLayout
-
-extension ProfileController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 100)
+        collectionView.backgroundColor = .menTweetRed
     }
 }
