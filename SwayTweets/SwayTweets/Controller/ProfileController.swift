@@ -35,7 +35,7 @@ class ProfileController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.isHidden = true
     }
     
@@ -72,6 +72,7 @@ extension ProfileController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifire, for: indexPath) as! ProfileHeader
         header.user = user
+        header.delegate = self
         return header
     }
 }
@@ -85,5 +86,11 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 100)
+    }
+}
+
+extension ProfileController: ProfileHeaderDelegate {
+    func handleDismissal() {
+        navigationController?.popViewController(animated: true)
     }
 }
