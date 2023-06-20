@@ -110,6 +110,30 @@ class TweetHeader: UICollectionReusableView {
         return view
     }()
     
+    private lazy var commentButton: UIButton = {
+        let button = createButton(withImageName: "message-circle")
+        button.addTarget(self, action: #selector(handleCommentTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var retweetButton: UIButton = {
+        let button = createButton(withImageName: "refresh-cw")
+        button.addTarget(self, action: #selector(handleRetweetTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var likeButton: UIButton = {
+        let button = createButton(withImageName: "heart-2")
+        button.addTarget(self, action: #selector(handleLikeTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var shareButton: UIButton = {
+        let button = createButton(withImageName: "share-2")
+        button.addTarget(self, action: #selector(handleShareTapped), for: .touchUpInside)
+        return button
+    }()
+    
     //MARK: - Lifecycle
     
     override init(frame: CGRect) {
@@ -151,6 +175,12 @@ class TweetHeader: UICollectionReusableView {
                          left: leadingAnchor,
                          right: trailingAnchor,
                          paddingTop: 20, height: 40)
+        
+        let actionStack = UIStackView(arrangedSubviews: [commentButton, retweetButton, likeButton, shareButton])
+        actionStack.spacing = 72
+        addSubview(actionStack)
+        actionStack.centerX(inView: self)
+        actionStack.anchor(bottom: bottomAnchor, paddingBottom: 12)
     }
     
     required init?(coder: NSCoder) {
@@ -167,5 +197,29 @@ class TweetHeader: UICollectionReusableView {
         print("Show action sheet")
     }
     
+    @objc func handleCommentTapped() {
+        
+    }
+    
+    @objc func handleRetweetTapped() {
+        
+    }
+    
+    @objc func handleLikeTapped() {
+        
+    }
+    
+    @objc func handleShareTapped() {
+        
+    }
+    
     //MARK: - Helpers
+    
+    func createButton(withImageName imageName: String) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: imageName), for: .normal)
+        button.tintColor = .darkGray
+        button.setDimensions(width: 20, height: 20)
+        return button
+    }
 }
