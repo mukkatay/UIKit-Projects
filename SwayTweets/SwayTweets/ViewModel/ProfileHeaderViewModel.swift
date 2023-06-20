@@ -13,11 +13,11 @@ struct ProfileHeaderViewModel {
     let usernameText: String
     
     var followersString: NSAttributedString? {
-        return attributedText(withTitle: 0, text: " followers")
+        return attributedText(withTitle: user.stats?.followers ?? 0, text: " followers")
     }
     
     var followingString: NSAttributedString? {
-        return attributedText(withTitle: 2, text: " following")
+        return attributedText(withTitle: user.stats?.following ?? 0, text: " following")
     }
     
     var actionButtonTitle: String {
