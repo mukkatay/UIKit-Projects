@@ -116,6 +116,11 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
 extension ProfileController: ProfileHeaderDelegate {
     func handleEditProfileFollow(_ header: ProfileHeader) {
         
+        if user.isCurrentUser {
+            print("DEBUG: Show edit profile controller...")
+            return
+        }
+        
         print("DEBUG: User is followed is \(user.isFollowed) before button tap")
         
         if user.isFollowed {
