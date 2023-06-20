@@ -27,17 +27,12 @@ class ProfileFilterView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        collectionView.backgroundColor = .white
+        
         collectionView.register(ProfileFilterCell.self, forCellWithReuseIdentifier: reuseIdentifire)
         
         addSubview(collectionView)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        let constraints = [
-            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: self.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        ]
-        NSLayoutConstraint.activate(constraints)
+        collectionView.addConstraintsToFillView(self)
     }
     
     required init?(coder: NSCoder) {

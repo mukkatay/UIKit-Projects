@@ -92,7 +92,12 @@ class RegistrationController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureUI()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true) // Скрывает клавиатуру при касании за пределами текстового поля
     }
     
     //MARK: - Selectors
