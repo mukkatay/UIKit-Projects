@@ -38,6 +38,7 @@ class ProfileController: UICollectionViewController {
         
         configureCollectionView()
         fetchTweets()
+        checkIfUserIsFollowed()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +52,13 @@ class ProfileController: UICollectionViewController {
     func fetchTweets() {
         TweetService.shared.fetchTweets(forUser: user) { tweets in
             self.tweets = tweets
+        }
+    }
+    
+    func checkIfUserIsFollowed() {
+        UserService.shared.checkIfUserIsFollowed(uid: user.uid) { isFollowed in
+            self.user.isFollowed = isFollowed
+            self.collectionView.reloadData()
         }
     }
     
@@ -113,11 +121,13 @@ extension ProfileController: ProfileHeaderDelegate {
         if user.isFollowed {
             UserService.shared.unfollowUser(uid: user.uid) { (ref, err) in
                 self.user.isFollowed = false
+                self.collectionView.reloadData()
                 print("DEBUG: User is followed is \(self.user.isFollowed) after button tap")
             }
         } else {
             UserService.shared.followUser(uid: user.uid) { (ref, err) in
                 self.user.isFollowed = true
+                self.collectionView.reloadData()
                 print("DEBUG: User is followed is \(self.user.isFollowed) after button tap")
             }
         }
