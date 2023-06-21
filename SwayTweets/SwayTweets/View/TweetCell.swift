@@ -53,7 +53,7 @@ class TweetCell: UICollectionViewCell {
     private lazy var commentButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "message-circle"), for: .normal)
-        button.tintColor = .darkGray
+        button.tintColor = .lightGray
         button.setDimensions(width: 18, height: 18)
         button.addTarget(self, action: #selector(handleCommentTapped), for: .touchUpInside)
         return button
@@ -62,7 +62,7 @@ class TweetCell: UICollectionViewCell {
     private lazy var retweetButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "refresh-cw"), for: .normal)
-        button.tintColor = .darkGray
+        button.tintColor = .lightGray
         button.setDimensions(width: 18, height: 18)
         button.addTarget(self, action: #selector(handleRetweetTapped), for: .touchUpInside)
         return button
@@ -70,8 +70,8 @@ class TweetCell: UICollectionViewCell {
     
     private lazy var likeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "heart-2"), for: .normal)
-        button.tintColor = .darkGray
+        button.setImage(UIImage(named: "heart-lined"), for: .normal)
+        button.tintColor = .lightGray
         button.setDimensions(width: 18, height: 18)
         button.addTarget(self, action: #selector(handleLikeTapped), for: .touchUpInside)
         return button
@@ -80,7 +80,7 @@ class TweetCell: UICollectionViewCell {
     private lazy var shareButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "share-2"), for: .normal)
-        button.tintColor = .darkGray
+        button.tintColor = .lightGray
         button.setDimensions(width: 18, height: 18)
         button.addTarget(self, action: #selector(handleShareTapped), for: .touchUpInside)
         return button
