@@ -11,7 +11,7 @@ private let reuseIdentifire = "NotificationCell"
 
 class NotificationsController: UITableViewController {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     private var notifications = [Notification]() {
         didSet {
@@ -19,7 +19,7 @@ class NotificationsController: UITableViewController {
         }
     }
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,27 +33,37 @@ class NotificationsController: UITableViewController {
         navigationController?.navigationBar.barStyle = .default
     }
     
-    //MARK: - API
+    // MARK: - Selectors
+    
+    @objc func handleRefresh() {
+        fetchNotifications()
+    }
+    
+    // MARK: - API
     
     func fetchNotifications() {
+        refreshControl?.beginRefreshing()
         NotificationService.shared.fetchNotifications { notifications in
+            self.refreshControl?.endRefreshing()
             self.notifications = notifications
-            
-            for (index, notification) in notifications.enumerated() {
-                if case .follow = notification.type {
-                    let user = notification.user
-                    
-                    UserService.shared.checkIfUserIsFollowed(uid: user.uid) { isFollowed in
-                        self.notifications[index].user.isFollowed = isFollowed
-                    }
+            self.checkIfUserIsFollowed(notification: notifications)
+        }
+    }
+    
+    func checkIfUserIsFollowed(notification: [Notification]){
+        for (index, notification) in notifications.enumerated() {
+            if case .follow = notification.type {
+                let user = notification.user
+                
+                UserService.shared.checkIfUserIsFollowed(uid: user.uid) { isFollowed in
+                    self.notifications[index].user.isFollowed = isFollowed
                 }
             }
         }
     }
     
+    // MARK: - Helpers
     
-    
-    //MARK: - Helpers
     func configureUI() {
         view.backgroundColor = .white
         navigationItem.title = "Notifations"
@@ -61,6 +71,10 @@ class NotificationsController: UITableViewController {
         tableView.register(NotificationCell.self, forCellReuseIdentifier: reuseIdentifire)
         tableView.rowHeight = 60
         tableView.separatorStyle = .none
+        
+        let refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
     }
 }
 
@@ -99,7 +113,17 @@ extension NotificationsController {
 
 extension NotificationsController: NotificationCellDelegate {
     func didTapFollow(_ cell: NotificationCell) {
-        print("TAP®")
+        guard let user = cell.notification?.user else { return }
+        
+        if user.isFollowed {
+            UserService.shared.unfollowUser(uid: user.uid) { (err, ref) in
+                cell.notification?.user.isFollowed = false
+            }
+        } else {
+            UserService.shared.followUser(uid: user.uid) { (err, ref) in
+                cell.notification?.user.isFollowed = true
+            }
+        }
     }
     
     func didTapProfileImage(_ cell: NotificationCell) {
