@@ -113,24 +113,32 @@ class TweetHeader: UICollectionReusableView {
     private lazy var commentButton: UIButton = {
         let button = createButton(withImageName: "message-circle")
         button.addTarget(self, action: #selector(handleCommentTapped), for: .touchUpInside)
+        button.setDimensions(width: 20, height: 20)
+        button.tintColor = .lightGray
         return button
     }()
     
     private lazy var retweetButton: UIButton = {
         let button = createButton(withImageName: "refresh-cw")
         button.addTarget(self, action: #selector(handleRetweetTapped), for: .touchUpInside)
+        button.setDimensions(width: 20, height: 20)
+        button.tintColor = .lightGray
         return button
     }()
     
     private lazy var likeButton: UIButton = {
-        let button = createButton(withImageName: "heart-2")
+        let button = createButton(withImageName: "heart-lined")
         button.addTarget(self, action: #selector(handleLikeTapped), for: .touchUpInside)
+        button.setDimensions(width: 24, height: 24)
+        button.tintColor = .lightGray
         return button
     }()
     
     private lazy var shareButton: UIButton = {
         let button = createButton(withImageName: "share-2")
         button.addTarget(self, action: #selector(handleShareTapped), for: .touchUpInside)
+        button.setDimensions(width: 20, height: 20)
+        button.tintColor = .lightGray
         return button
     }()
     
@@ -233,6 +241,9 @@ class TweetHeader: UICollectionReusableView {
         profileImageView.sd_setImage(with: viewModel.profileImageUrl)
         dateLabel.text = viewModel.headerTimestamp
         retweetsLabel.attributedText = viewModel.retweetAttributedString
+        
         likesLabel.attributedText = viewModel.likesAttributedString
+        likeButton.setImage(viewModel.likeButtonImage, for: .normal)
+        likeButton.tintColor = viewModel.likeButtonTintColor
     }
 }
