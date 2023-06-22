@@ -10,6 +10,7 @@ import SDWebImage
 
 protocol NotificationCellDelegate: class {
     func didTapProfileImage(_ cell: NotificationCell)
+    func didTapFollow(_ cell: NotificationCell)
 }
 
 class NotificationCell: UITableViewCell {
@@ -45,6 +46,17 @@ class NotificationCell: UITableViewCell {
         return label
     }()
     
+    private lazy var followButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Loading", for: .normal)
+        button.setTitleColor(.menTweetRed, for: .normal)
+        button.backgroundColor = .white
+        button.layer.borderColor = UIColor.menTweetRed.cgColor
+        button.layer.borderWidth = 2
+        button.addTarget(self, action: #selector(handleFollowTapped), for: .touchUpInside)
+        return button
+    }()
+    
     //MARK: - Lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -54,9 +66,15 @@ class NotificationCell: UITableViewCell {
         stack.spacing = 8
         stack.alignment = .center
         
-        addSubview(stack)
+        contentView.addSubview(stack)
         stack.centerY(inView: self, leftAnchor: leadingAnchor, paddingLeft: 12)
         stack.anchor(right: trailingAnchor, paddingRight: 12)
+        
+        contentView.addSubview(followButton)
+        followButton.centerY(inView: self)
+        followButton.setDimensions(width: 88, height: 32)
+        followButton.layer.cornerRadius = 32 / 2
+        followButton.anchor(right: trailingAnchor, paddingRight: 12)
     }
     
     required init?(coder: NSCoder) {
@@ -69,6 +87,10 @@ class NotificationCell: UITableViewCell {
         delegate?.didTapProfileImage(self)
     }
     
+    @objc func handleFollowTapped() {
+        delegate?.didTapFollow(self)
+    }
+    
     //MARK: - Helpers
     
     func configure() {
@@ -78,5 +100,7 @@ class NotificationCell: UITableViewCell {
         profileImageView.sd_setImage(with: viewModel.profileImageUrl)
         notificationLabel.attributedText = viewModel.notificationText
         
+        followButton.isHidden = viewModel.shouldHideFollowButton
+        followButton.setTitle(viewModel.followButtonText, for: .normal)
     }
 }
