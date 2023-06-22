@@ -121,6 +121,8 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK: - ProfileHeaderDelegate
+
 extension ProfileController: ProfileHeaderDelegate {
     func handleEditProfileFollow(_ header: ProfileHeader) {
         
@@ -142,6 +144,8 @@ extension ProfileController: ProfileHeaderDelegate {
                 self.user.isFollowed = true
                 self.collectionView.reloadData()
                 print("DEBUG: User is followed is \(self.user.isFollowed) after button tap")
+                
+                NotificationService.shared.uploadNotification(type: .follow, user: self.user)
             }
         }
         
