@@ -9,13 +9,16 @@ import UIKit
 
 class ProfileFilterCell: UICollectionViewCell {
     
-    //MARK: - Properties
+    // MARK: - Properties
+    
+    var option: ProfileFilterOptions! {
+        didSet { titleLabel.text = option.description }
+    }
     
     let titleLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.textColor = .lightGray
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "Test filter"
         return label
     }()
     
@@ -26,12 +29,12 @@ class ProfileFilterCell: UICollectionViewCell {
         }
     }
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .red
+        backgroundColor = .white
         
         addSubview(titleLabel)
         titleLabel.center(inView: self)
@@ -40,4 +43,6 @@ class ProfileFilterCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Selectors
 }

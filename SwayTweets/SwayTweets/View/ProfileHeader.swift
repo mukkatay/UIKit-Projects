@@ -144,8 +144,8 @@ class ProfileHeader: UICollectionReusableView {
                            paddingLeft: 12)
         
         
-//        addSubview(filterBar)
-//        filterBar.anchor(left: leadingAnchor, bottom: bottomAnchor, right: trailingAnchor, height: 50)
+        addSubview(filterBar)
+        filterBar.anchor(left: leadingAnchor, bottom: bottomAnchor, right: trailingAnchor, height: 50)
     }
     
     required init?(coder: NSCoder) {
