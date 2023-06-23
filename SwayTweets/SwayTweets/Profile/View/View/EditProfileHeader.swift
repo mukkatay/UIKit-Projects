@@ -35,7 +35,7 @@ class EditProfileHeader: UIView {
         button.setTitle("Change Profile Photo", for: .normal)
         button.addTarget(self, action: #selector(handleChangeProfilePhoto), for: .touchUpInside)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         return button
     }()
 
@@ -46,7 +46,7 @@ class EditProfileHeader: UIView {
         self.user = user
         super.init(frame: .zero)
 
-        backgroundColor = .menTweetRed
+        backgroundColor = .mainAppColor
 
         addSubview(profileImageView)
         profileImageView.center(inView: self, yConstant: -16)

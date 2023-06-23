@@ -101,7 +101,7 @@ class EditProfileController: UITableViewController {
     // MARK: - Helpers
 
     func configureNavigationBar() {
-        navigationController?.navigationBar.barTintColor = .menTweetRed
+        navigationController?.navigationBar.barTintColor = .mainAppColor
 //        navigationController?.navigationBar.barStyle = .black
 //        navigationController?.navigationBar.isTranslucent = false
 //        navigationController?.navigationBar.tintColor = .white

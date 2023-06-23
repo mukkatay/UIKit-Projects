@@ -20,31 +20,31 @@ class RegistrationController: UIViewController {
     private let plusePhotoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
-        button.tintColor = .menTweetWhite
+        button.tintColor = .black
         button.addTarget(self, action: #selector(handleAddProfilePhoto), for: .touchUpInside)
         return button
     }()
     
     private lazy var emailContainerView: UIView = {
-        let image = UIImage(named: "men_tweet_mail")
+        let image = UIImage(named: "mail")
         let view = Utilities().inputContainerView(withImage: image!, textField: emailTextField)
         return view
     }()
     
     private lazy var passwordContainerView: UIView = {
-        let image = UIImage(named: "men_tweet_lock")
+        let image = UIImage(named: "lock")
         let view = Utilities().inputContainerView(withImage: image!, textField: passwordTextField)
         return view
     }()
     
     private lazy var fullNameContainerView: UIView = {
-        let image = UIImage(named: "men_tweet_user")
+        let image = UIImage(named: "user")
         let view = Utilities().inputContainerView(withImage: image!, textField: fullNameTextField)
         return view
     }()
     
     private lazy var usernameContainerView: UIView = {
-        let image = UIImage(named: "men_tweet_user")
+        let image = UIImage(named: "user")
         let view = Utilities().inputContainerView(withImage: image!, textField: usernameTextField)
         return view
     }()
@@ -79,8 +79,8 @@ class RegistrationController: UIViewController {
     private let registrationButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign In", for: .normal)
-        button.setTitleColor(.menTweetOrange, for: .normal)
-        button.backgroundColor = .menTweetWhite
+        button.setTitleColor(.mainAppColor, for: .normal)
+        button.backgroundColor = .mainAppColor
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         button.layer.cornerRadius = 8
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
@@ -141,7 +141,7 @@ class RegistrationController: UIViewController {
     //MARK: - Helpers
 
     func configureUI() {
-        view.backgroundColor = .menTweetRed
+        view.backgroundColor = .mainAppColor
         
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
@@ -191,7 +191,7 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         plusePhotoButton.layer.masksToBounds = true
         plusePhotoButton.imageView?.contentMode = .scaleAspectFill
         plusePhotoButton.imageView?.clipsToBounds = true
-        plusePhotoButton.layer.borderColor = UIColor.menTweetWhite.cgColor
+        plusePhotoButton.layer.borderColor = UIColor.mainAppColor.cgColor
         plusePhotoButton.layer.borderWidth = 2
         
         self.plusePhotoButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)

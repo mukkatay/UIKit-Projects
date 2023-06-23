@@ -27,7 +27,7 @@ class TweetHeader: UICollectionReusableView {
         iv.clipsToBounds = true
         iv.setDimensions(width: 48, height: 48)
         iv.layer.cornerRadius = 48 / 2
-        iv.backgroundColor = .menTweetOrange
+        iv.backgroundColor = .mainAppColor
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleProfileImageTapped))
         iv.addGestureRecognizer(tap)

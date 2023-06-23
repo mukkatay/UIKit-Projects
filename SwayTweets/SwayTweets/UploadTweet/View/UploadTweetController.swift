@@ -18,11 +18,11 @@ class UploadTweetController: UIViewController {
     
     private lazy var actionButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .menTweetRed
+        button.backgroundColor = .mainAppColor
         button.setTitle("Tweet", for: .normal)
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         
         button.frame = CGRect(x: 0, y: 0, width: 64, height: 32)
         button.layer.cornerRadius = 32 / 2
@@ -44,7 +44,7 @@ class UploadTweetController: UIViewController {
         let label = ActiveLabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .lightGray
-        label.mentionColor = .menTweetRed
+        label.mentionColor = .mainAppColor
         label.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
         return label
     }()

@@ -91,10 +91,8 @@ extension UIColor {
         return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
     }
     
-    static let menTweetWhite = rgb(red: 255, green: 230, blue: 230)
-    static let menTweetOrange = rgb(red: 255, green: 38, blue: 38)
-    static let menTweetRed = rgb(red: 189, green: 22, blue: 22)
-    static let menTweetDark = rgb(red: 0, green: 0, blue: 0)
+    static let mainAppColor = rgb(red: 253, green: 200, blue: 60)
+//    static let menTweetRed = rgb(red: 189, green: 22, blue: 22)
     
 }
 

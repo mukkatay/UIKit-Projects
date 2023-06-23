@@ -29,7 +29,7 @@ class NotificationCell: UITableViewCell {
         iv.clipsToBounds = true
         iv.setDimensions(width: 40, height: 40)
         iv.layer.cornerRadius = 40 / 2
-        iv.backgroundColor = .menTweetRed
+        iv.backgroundColor = .mainAppColor
 
         let tap = UITapGestureRecognizer(target: self,
                                          action: #selector(handleProfileImageTapped))
@@ -44,9 +44,9 @@ class NotificationCell: UITableViewCell {
         button.setDimensions(width: 92, height: 32)
         button.layer.cornerRadius = 32 / 2
         button.setTitle("Loading", for: .normal)
-        button.setTitleColor(.menTweetRed, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .white
-        button.layer.borderColor = UIColor.menTweetRed.cgColor
+        button.layer.borderColor = UIColor.mainAppColor.cgColor
         button.layer.borderWidth = 2
         button.addTarget(self, action: #selector(handleFollowButtonTapped), for: .touchUpInside)
 

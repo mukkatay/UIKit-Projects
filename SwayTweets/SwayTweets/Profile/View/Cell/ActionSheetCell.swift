@@ -19,7 +19,7 @@ class ActionSheetCell: UITableViewCell {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
         iv.clipsToBounds = true
-        iv.image = UIImage(named: "twitter")
+        iv.image = UIImage(named: "sweyTweetLogoMini")
         return iv
     }()
     

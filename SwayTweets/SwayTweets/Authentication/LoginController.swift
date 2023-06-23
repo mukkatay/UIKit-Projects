@@ -13,21 +13,21 @@ class LoginController: UIViewController {
     
     private let logoImageView: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
-        image.image = UIImage(named: "twitter_logo_white")
-        image.tintColor = .menTweetRed
+        image.image = UIImage(named: "swayTweetsLogo")
+        image.tintColor = .mainAppColor
         return image
     }()
     
     private lazy var emailContainerView: UIView = {
-        let image = UIImage(named: "men_tweet_mail")
+        let image = UIImage(named: "mail")
         let view = Utilities().inputContainerView(withImage: image!, textField: emailTextField)
         return view
     }()
     
     private lazy var passwordContainerView: UIView = {
-        let image = UIImage(named: "men_tweet_lock")
+        let image = UIImage(named: "lock")
         let view = Utilities().inputContainerView(withImage: image!, textField: passwordTextField)
         return view
     }()
@@ -46,10 +46,12 @@ class LoginController: UIViewController {
     private let logInButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
-        button.setTitleColor(.menTweetOrange, for: .normal)
-        button.backgroundColor = .menTweetWhite
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .mainAppColor
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         button.layer.cornerRadius = 8
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 2
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
@@ -57,6 +59,7 @@ class LoginController: UIViewController {
     
     private let dontHaveAccounButton: UIButton = {
         let button = Utilities().attributedButton("Don't have account? ", "Sign Up")
+        button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         return button
     }()
@@ -102,7 +105,7 @@ class LoginController: UIViewController {
     //MARK: - Helpers
 
     func configureUI() {
-        view.backgroundColor = .menTweetRed
+        view.backgroundColor = .mainAppColor
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.isHidden = true
         
@@ -110,7 +113,8 @@ class LoginController: UIViewController {
         logoImageView.centerX(inView: view,
                               topAnchor: view.safeAreaLayoutGuide.topAnchor,
                               paddingTop: 32)
-        logoImageView.setDimensions(width: 100, height: 100)
+        logoImageView.setDimensions(width: 150, height: 150)
+        
         
         let stack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView, logInButton])
         stack.axis = .vertical

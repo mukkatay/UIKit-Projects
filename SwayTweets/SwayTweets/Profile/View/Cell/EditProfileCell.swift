@@ -30,7 +30,7 @@ class EditProfileCell: UITableViewCell {
         tf.borderStyle = .none
         tf.font = UIFont.systemFont(ofSize: 14)
         tf.textAlignment = .left
-        tf.textColor = .menTweetRed
+        tf.textColor = .mainAppColor
         tf.addTarget(self, action: #selector(handleUpdateUserInfo), for: .editingDidEnd)
         return tf
     }()
@@ -38,7 +38,7 @@ class EditProfileCell: UITableViewCell {
     let bioTextView: CaptionTextView = {
         let tv = CaptionTextView()
         tv.font = UIFont.systemFont(ofSize: 14)
-        tv.textColor = .menTweetRed
+        tv.textColor = .mainAppColor
         tv.placeholderLabel.text = "Bio"
         return tv
     }()

@@ -54,7 +54,9 @@ class ActionSheetLauncher: NSObject {
         button.setTitle("Cancel", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .systemGroupedBackground
+        button.layer.borderColor = UIColor.mainAppColor.cgColor
+        button.layer.borderWidth = 2.5
+//        button.backgroundColor = .mainAppColor
         button.addTarget(self, action: #selector(handleDismissal), for: .touchUpInside)
         return button
     }()

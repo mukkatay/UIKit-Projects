@@ -31,7 +31,7 @@ class TweetCell: UICollectionViewCell {
         iv.clipsToBounds = true
         iv.setDimensions(width: 48, height: 48)
         iv.layer.cornerRadius = 48 / 2
-        iv.backgroundColor = .menTweetRed
+        iv.backgroundColor = .mainAppColor
         
         let tap = UITapGestureRecognizer(target: self,
                                          action: #selector(handleProfileImageTapped))
@@ -45,8 +45,8 @@ class TweetCell: UICollectionViewCell {
         let label = ActiveLabel()
         label.textColor = .lightGray
         label.font = UIFont.systemFont(ofSize: 12)
-        label.mentionColor = .menTweetRed
-        label.hashtagColor = .menTweetRed
+        label.mentionColor = .mainAppColor
+        label.hashtagColor = .mainAppColor
         return label
     }()
     
@@ -54,8 +54,8 @@ class TweetCell: UICollectionViewCell {
        let label = ActiveLabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
-        label.mentionColor = .menTweetRed
-        label.hashtagColor = .menTweetRed
+        label.mentionColor = .mainAppColor
+        label.hashtagColor = .mainAppColor
         return label
     }()
     

@@ -18,10 +18,12 @@ class EditProfileFooter: UIView {
     private lazy var logoutButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Logout", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.backgroundColor = .red
+//        button.backgroundColor = .mainAppColor
         button.layer.cornerRadius = 5
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.mainAppColor.cgColor
         button.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
 
         return button

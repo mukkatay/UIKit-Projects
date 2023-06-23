@@ -83,10 +83,11 @@ class FeedController: UICollectionViewController {
         collectionView.register(TweetCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.backgroundColor = .white
         
-        let imageView = UIImageView(image: UIImage(named: "twitter_logo_red"))
+        let imageView = UIImageView(image: UIImage(named: "sweyTweetLogoMini"))
         imageView.setDimensions(width: 32, height: 32)
         imageView.contentMode = .scaleAspectFit
         imageView.setDimensions(width: 44, height: 44)
+        imageView.tintColor = .mainAppColor
         navigationItem.titleView = imageView
         navigationItem.titleView?.backgroundColor = .white
         navigationController?.navigationBar.barTintColor = .white

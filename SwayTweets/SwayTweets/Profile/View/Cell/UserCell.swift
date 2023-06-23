@@ -21,7 +21,7 @@ class UserCell: UITableViewCell {
         iv.clipsToBounds = true
         iv.setDimensions(width: 32, height: 32)
         iv.layer.cornerRadius = 32 / 2
-        iv.backgroundColor = .menTweetOrange
+        iv.backgroundColor = .mainAppColor
         
         return iv
     }()

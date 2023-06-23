@@ -19,6 +19,7 @@ class Utilities {
                   bottom: view.bottomAnchor,
                   paddingBottom: 8)
         iv.setDimensions(width: 24, height: 24)
+        iv.tintColor = .black
         
         view.addSubview(textField)
         textField.anchor(left: iv.trailingAnchor,
@@ -28,7 +29,7 @@ class Utilities {
                          paddingBottom: 8)
         
         let dividerView = UIView()
-        dividerView.backgroundColor = .menTweetWhite
+        dividerView.backgroundColor = .black
         view.addSubview(dividerView)
         dividerView.anchor(left: view.leadingAnchor,
                            bottom: view.bottomAnchor,
@@ -41,17 +42,17 @@ class Utilities {
     func textField(with placeholder: String) -> UITextField {
         let tf = UITextField()
         tf.font = UIFont.systemFont(ofSize: 16)
-        tf.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.menTweetWhite])
-        tf.textColor = .menTweetWhite
+        tf.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        tf.textColor = .black
         return tf
     }
     
     func attributedButton(_ firstPart: String, _ secondPart: String) -> UIButton {
         let button = UIButton(type: .system)
         
-        let attributedTitle = NSMutableAttributedString(string: firstPart, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),NSAttributedString.Key.foregroundColor: UIColor.menTweetWhite])
+        let attributedTitle = NSMutableAttributedString(string: firstPart, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),NSAttributedString.Key.foregroundColor: UIColor.black])
         
-        attributedTitle.append(NSAttributedString(string: secondPart, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.menTweetWhite]))
+        attributedTitle.append(NSAttributedString(string: secondPart, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.black]))
         
         button.setAttributedTitle(attributedTitle, for: .normal)
         
