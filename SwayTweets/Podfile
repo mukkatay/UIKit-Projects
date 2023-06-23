@@ -13,5 +13,6 @@ target 'SwayTweets' do
 	pod 'FirebaseAuth'
 	pod 'FirebaseFirestore'
 	pod 'SDWebImage', '~> 5.0'
+	pod 'ActiveLabel'
 
 end

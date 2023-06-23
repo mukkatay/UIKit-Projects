@@ -628,6 +628,7 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
+  - ActiveLabel (1.1.0)
   - BoringSSL-GRPC (0.0.24):
     - BoringSSL-GRPC/Implementation (= 0.0.24)
     - BoringSSL-GRPC/Interface (= 0.0.24)
@@ -761,6 +762,7 @@ PODS:
   - SDWebImage/Core (5.16.0)
 
 DEPENDENCIES:
+  - ActiveLabel
   - FirebaseAuth
   - FirebaseCore
   - FirebaseDatabase
@@ -771,6 +773,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - abseil
+    - ActiveLabel
     - BoringSSL-GRPC
     - FirebaseAppCheckInterop
     - FirebaseAuth
@@ -792,6 +795,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   abseil: 926fb7a82dc6d2b8e1f2ed7f3a718bce691d1e46
+  ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   FirebaseAppCheckInterop: 255b6c0292fe5da995c8b2df0c02f6a3ca7f61b4
   FirebaseAuth: 7aabcb00fbf330db49c207c0d645b8b1b62df0e9
@@ -811,6 +815,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   SDWebImage: 2aea163b50bfcb569a2726b6a754c54a4506fcf6
 
-PODFILE CHECKSUM: c54f35b348a17c33be5901a448e685c9475d7fc2
+PODFILE CHECKSUM: b427c4e22133bf7c269053bcad4dc416849c1a41
 
 COCOAPODS: 1.12.1
