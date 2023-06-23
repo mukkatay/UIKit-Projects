@@ -79,8 +79,10 @@ class RegistrationController: UIViewController {
     private let registrationButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign In", for: .normal)
-        button.setTitleColor(.mainAppColor, for: .normal)
-        button.backgroundColor = .mainAppColor
+        button.setTitleColor(.black, for: .normal)
+//        button.backgroundColor = .mainAppColor
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         button.layer.cornerRadius = 8
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
