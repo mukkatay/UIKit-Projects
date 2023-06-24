@@ -2,7 +2,7 @@
 
 ## GIF
 
-<img src="https://github.com/mukkatay/UIKit-Projects/assets/74911760/530b40e7-6b60-4fd3-bce6-3d7ed601abf0" width="320">
+<img src="https://github.com/mukkatay/UIKit-Projects/assets/74911760/530b40e7-6b60-4fd3-bce6-3d7ed601abf0" width="150">
 
 ## Technologies
 + Swift
