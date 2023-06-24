@@ -8,6 +8,7 @@
 + Swift
 + UIKit
 + Firebase
++ Architecture: MVVM
 
 ## Screens
 
