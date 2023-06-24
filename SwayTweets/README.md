@@ -2,12 +2,17 @@
 
 ## GIF
 
-<img src="https://github.com/mukkatay/UIKit-Projects/assets/74911760/530b40e7-6b60-4fd3-bce6-3d7ed601abf0" width="150">
+<img src="https://github.com/mukkatay/UIKit-Projects/assets/74911760/530b40e7-6b60-4fd3-bce6-3d7ed601abf0" width="200">
 
 ## Technologies
 + Swift
 + UIKit
-+ Firebase 
++ Firebase
+
+## Screens
+
+![image](https://github.com/mukkatay/UIKit-Projects/assets/74911760/aa59b3b8-489f-4a9e-a81d-90eedb26e568)
+
 
 ## What have I learned?
 + MVVM
