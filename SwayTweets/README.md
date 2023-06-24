@@ -1,6 +1,6 @@
 # Sway Tweets App
 
-![zyro-image](https://github.com/mukkatay/UIKit-Projects/assets/74911760/c2b5695c-d307-459b-9751-851a6a1f41ee)
+![image](https://github.com/mukkatay/UIKit-Projects/assets/74911760/45177c3f-5b3a-40fc-97ed-728daad635eb)
 
 **SwayTweets** is an application where people can write short messages called tweets and chat with others. They can follow other users and read their posts on their page. You can also like, repost and reply to other people's messages. SwayTweets is used to share news, opinions and connect with people from all over the world.
 
