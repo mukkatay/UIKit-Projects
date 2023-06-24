@@ -1,4 +1,4 @@
-# Sway Tweets App
+# SwayTweets App
 
 ![image](https://github.com/mukkatay/UIKit-Projects/assets/74911760/45177c3f-5b3a-40fc-97ed-728daad635eb)
 
