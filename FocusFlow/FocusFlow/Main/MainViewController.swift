@@ -49,7 +49,14 @@ class MainViewController: UIViewController {
     // MARK: - Selectors
     
     @objc func handleFocusCategoryBtn() {
-        print("Focus Category Button Tapped...")
+        let vc = FocusCategoryViewController()
+        vc.view.layer.cornerRadius = 20
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.custom { _ in
+                return 362
+            }]
+        }
+        present(vc, animated: true)
     }
 
 }

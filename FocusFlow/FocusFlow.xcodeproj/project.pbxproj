@@ -17,6 +17,7 @@
 		BDBE780C2A4D67B60085342D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBE780B2A4D67B60085342D /* SettingsViewController.swift */; };
 		BDBE780E2A4D67BF0085342D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBE780D2A4D67BF0085342D /* HistoryViewController.swift */; };
 		BDBE78112A4D6EC30085342D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBE78102A4D6EC30085342D /* Extensions.swift */; };
+		BDF8D5132A5701030038BB47 /* FocusCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF8D5122A5701030038BB47 /* FocusCategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		BDBE780B2A4D67B60085342D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BDBE780D2A4D67BF0085342D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		BDBE78102A4D6EC30085342D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BDF8D5122A5701030038BB47 /* FocusCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				BDBE78092A4D67A90085342D /* MainViewController.swift */,
+				BDF8D5122A5701030038BB47 /* FocusCategoryViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				BDBE78112A4D6EC30085342D /* Extensions.swift in Sources */,
 				BDBE77F12A4D642E0085342D /* SceneDelegate.swift in Sources */,
 				BDBE780A2A4D67A90085342D /* MainViewController.swift in Sources */,
+				BDF8D5132A5701030038BB47 /* FocusCategoryViewController.swift in Sources */,
 				BDBE780E2A4D67BF0085342D /* HistoryViewController.swift in Sources */,
 				BDBE780C2A4D67B60085342D /* SettingsViewController.swift in Sources */,
 			);
