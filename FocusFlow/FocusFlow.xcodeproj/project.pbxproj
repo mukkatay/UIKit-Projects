@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		918A40B22303EC2B0E9FAC8F /* Pods_FocusFlow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A24036F74433C1079C580D /* Pods_FocusFlow.framework */; };
 		BDBE77EF2A4D642E0085342D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBE77EE2A4D642E0085342D /* AppDelegate.swift */; };
 		BDBE77F12A4D642E0085342D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBE77F02A4D642E0085342D /* SceneDelegate.swift */; };
 		BDBE77F32A4D642E0085342D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBE77F22A4D642E0085342D /* ViewController.swift */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04A24036F74433C1079C580D /* Pods_FocusFlow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FocusFlow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12A646B33558346B1145FE58 /* Pods-FocusFlow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusFlow.release.xcconfig"; path = "Target Support Files/Pods-FocusFlow/Pods-FocusFlow.release.xcconfig"; sourceTree = "<group>"; };
 		BDBE77EB2A4D642E0085342D /* FocusFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDBE77EE2A4D642E0085342D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDBE77F02A4D642E0085342D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 		BDBE780D2A4D67BF0085342D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		BDBE78102A4D6EC30085342D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BDF8D5122A5701030038BB47 /* FocusCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCategoryViewController.swift; sourceTree = "<group>"; };
+		C7D83805E76D8BBFB8D7A2A8 /* Pods-FocusFlow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusFlow.debug.xcconfig"; path = "Target Support Files/Pods-FocusFlow/Pods-FocusFlow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +45,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				918A40B22303EC2B0E9FAC8F /* Pods_FocusFlow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B1C3B87A7597ACD5FACFA5F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04A24036F74433C1079C580D /* Pods_FocusFlow.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BDBE77E22A4D642E0085342D = {
 			isa = PBXGroup;
 			children = (
 				BDBE77ED2A4D642E0085342D /* FocusFlow */,
 				BDBE77EC2A4D642E0085342D /* Products */,
+				ED7F9204A0B537909023EC4C /* Pods */,
+				B1C3B87A7597ACD5FACFA5F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +145,16 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		ED7F9204A0B537909023EC4C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C7D83805E76D8BBFB8D7A2A8 /* Pods-FocusFlow.debug.xcconfig */,
+				12A646B33558346B1145FE58 /* Pods-FocusFlow.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDBE77FF2A4D642F0085342D /* Build configuration list for PBXNativeTarget "FocusFlow" */;
 			buildPhases = (
+				044AAD8E52223276DE602D99 /* [CP] Check Pods Manifest.lock */,
 				BDBE77E72A4D642E0085342D /* Sources */,
 				BDBE77E82A4D642E0085342D /* Frameworks */,
 				BDBE77E92A4D642E0085342D /* Resources */,
+				EBCA4B60FCE59B5A3F5A242E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -194,6 +221,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		044AAD8E52223276DE602D99 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FocusFlow-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBCA4B60FCE59B5A3F5A242E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FocusFlow/Pods-FocusFlow-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FocusFlow/Pods-FocusFlow-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FocusFlow/Pods-FocusFlow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BDBE77E72A4D642E0085342D /* Sources */ = {
@@ -342,6 +411,7 @@
 		};
 		BDBE78002A4D642F0085342D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7D83805E76D8BBFB8D7A2A8 /* Pods-FocusFlow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -369,6 +439,7 @@
 		};
 		BDBE78012A4D642F0085342D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12A646B33558346B1145FE58 /* Pods-FocusFlow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
