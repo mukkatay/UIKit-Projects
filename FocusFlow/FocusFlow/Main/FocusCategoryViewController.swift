@@ -28,15 +28,14 @@ class FocusCategoryViewController: UIViewController {
     private let workButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Work", for: .normal)
-        button.backgroundColor = .red
         button.addTarget(self, action: #selector(toggleWork), for: .touchUpInside)
+        //        button.addTarget(self, action: #selector(buttonPressed), for: .touchDown)
         return button
     }()
     
     private let studyButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Study", for: .normal)
-        button.backgroundColor = .green
         button.addTarget(self, action: #selector(toggleStudy), for: .touchUpInside)
         return button
     }()
@@ -44,7 +43,6 @@ class FocusCategoryViewController: UIViewController {
     private let workoutButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Workout", for: .normal)
-        button.backgroundColor = .black
         button.addTarget(self, action: #selector(toggleWorkout), for: .touchUpInside)
         return button
     }()
@@ -52,7 +50,6 @@ class FocusCategoryViewController: UIViewController {
     private let readingButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Reading", for: .normal)
-        button.backgroundColor = .blue
         button.addTarget(self, action: #selector(toggleReading), for: .touchUpInside)
         return button
     }()
@@ -60,7 +57,6 @@ class FocusCategoryViewController: UIViewController {
     private let meditationButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Meditation", for: .normal)
-        button.backgroundColor = .yellow
         button.addTarget(self, action: #selector(toggleMeditation), for: .touchUpInside)
         return button
     }()
@@ -68,7 +64,6 @@ class FocusCategoryViewController: UIViewController {
     private let othersButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Others", for: .normal)
-        button.backgroundColor = .orange
         button.addTarget(self, action: #selector(toggleOthers), for: .touchUpInside)
         return button
     }()
@@ -88,9 +83,13 @@ class FocusCategoryViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    @objc func toggleWork() {
+    @objc func toggleWork(sender: UIButton) {
         print("toggleWork tapped..")
     }
+    
+//    @objc func buttonPressed(sender: UIButton) {
+//        sender.backgroundColor = UIColor.buttonColor
+//    }
     
     @objc func toggleStudy() {
         print("toggleStudy tapped..")
@@ -118,23 +117,21 @@ class FocusCategoryViewController: UIViewController {
         let headerStack = UIStackView(arrangedSubviews: [label, cancelIcon])
         view.addSubview(headerStack)
         
-        headerStack.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.left.equalToSuperview()
-            make.right.equalToSuperview()
-        }
+        headerStack.anchor(top: view.topAnchor,
+                           left: view.leadingAnchor,
+                           right: view.trailingAnchor,
+                           paddingRight: 16)
         
-        label.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(4)
-            make.left.equalToSuperview().inset(140)
-        }
+        label.anchor(top: headerStack.topAnchor,
+                     left: headerStack.leadingAnchor,
+                     paddingTop: 4, paddingLeft: 140)
         
-        cancelIcon.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(20)
-            make.bottom.equalToSuperview().inset(16)
-            make.left.equalTo(label.snp.right)
-            make.right.equalToSuperview().offset(16)
-        }
+        cancelIcon.anchor(top: headerStack.topAnchor,
+                          left: label.trailingAnchor,
+                          bottom: headerStack.bottomAnchor,
+                          paddingTop: 20,
+                          paddingLeft: 84,
+                          paddingBottom: 16)
         
         cancelIcon.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(cancelBottomSheet))
@@ -148,30 +145,25 @@ class FocusCategoryViewController: UIViewController {
         
         let stack = UIStackView(arrangedSubviews: [stack1, stack2])
         view.addSubview(stack)
-        stack.snp.makeConstraints { make in
-            make.top.equalTo(headerStack.snp.bottom).offset(24)
-            make.left.right.equalToSuperview().offset(16)
-        }
+        stack.anchor(top: headerStack.bottomAnchor,
+                     left: view.leadingAnchor,
+                     right: view.trailingAnchor,
+                     paddingTop: 24,
+                     paddingLeft: 16,
+                     paddingRight: 16)
+        stack.spacing = 14
         
-        stack1.snp.makeConstraints { make in
-            make.width.equalTo(172)
-            make.height.equalTo(220)
-        }
+        stack1.anchor(width: 172, height: 220)
+        stack2.anchor(width: 172, height: 220)
         
-        stack2.snp.makeConstraints { make in
-            make.width.equalTo(172)
-            make.height.equalTo(220)
-        }
+        stack1.spacing = 20
+        stack2.spacing = 20
         
-        workButton.snp.makeConstraints { make in
-            make.width.equalTo(172)
-            make.height.equalTo(60)
-        }
-        
-        workoutButton.snp.makeConstraints { make in
-            make.width.equalTo(172)
-            make.height.equalTo(60)
-            make.top.equalTo(workButton.snp.bottom).inset(-20)
+        [workButton, workoutButton, meditationButton, studyButton, readingButton, othersButton].forEach { $0.setDimensions(width: 172, height: 60)
+            $0.layer.cornerRadius = 16
+            $0.backgroundColor = UIColor.buttonColor
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+            $0.tintColor = UIColor.secondaryColor
         }
     }
 

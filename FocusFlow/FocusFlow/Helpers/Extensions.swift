@@ -92,6 +92,8 @@ extension UIColor {
     }
     
     static let backgroundColor = rgb(red: 0, green: 28, blue: 48)
+    static let buttonColor = rgb(red: 244, green: 244, blue: 244)
+    static let secondaryColor = rgb(red: 47, green: 47, blue: 51)
 }
 
 
